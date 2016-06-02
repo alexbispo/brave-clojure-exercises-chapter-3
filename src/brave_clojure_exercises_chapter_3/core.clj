@@ -7,11 +7,7 @@
   (+ number 100))
 
 (defn dec-maker
-  "Write a function, dec-maker, that works exactly like the function inc-maker except with subtraction:
-   Example:
-    (def dec9 (dec-maker 9))
-    (dec9 10)
-    => 1"
+  "Write a function, dec-maker, that works exactly like the function inc-maker except with subtraction:"
   [dec-by]
   #(- % dec-by))
 
@@ -24,7 +20,7 @@
   "Start..."
   [& args]
   (let [out-exercise-two (adds-100 2)
-        out-exercise-three (let [dec9 (dec-maker 9)] (println (dec9 10)))
+        out-exercise-three (let [dec9 (dec-maker 9)] (dec9 10))
         out-exercise-four (mapset inc [1 1 2 2])]
     (println (str "Exercise two's out: " out-exercise-two))
     (println (str "Exercise three's out: " out-exercise-three))
