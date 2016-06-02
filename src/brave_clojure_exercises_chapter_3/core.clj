@@ -1,12 +1,7 @@
 (ns brave-clojure-exercises-chapter-3.core
   (:gen-class))
 
-(defn exercise-one
-  "Use the str, vector, list, hash-map, and hash-set functions."
-  []
-  (println "I should use the str, vector, list, hash-map, and hash-set functions."))
-
-(defn exercise-two
+(defn adds-100
   "Write a function that takes a number and adds 100 to it"
   [number]
   (+ number 100))
@@ -20,7 +15,17 @@
   [dec-by]
   #(- % dec-by))
 
+(defn mapset
+  "Write a function, mapset, that works like map except the return value is a set"
+  [f coll]
+  (set (map f coll)))
+
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Start..."
   [& args]
-  (println "Hello, World!"))
+  (let [out-exercise-two (adds-100 2)
+        out-exercise-three (let [dec9 (dec-maker 9)] (println (dec9 10)))
+        out-exercise-four (mapset inc [1 1 2 2])]
+    (println (str "Exercise two's out: " out-exercise-two))
+    (println (str "Exercise three's out: " out-exercise-three))
+    (println (str "Exercise four's out: " out-exercise-four))))
