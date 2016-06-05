@@ -12,3 +12,15 @@
 (defn mapset
   [f coll]
   (set (map f coll)))
+
+(defn matching-part
+  [part]
+  {:name (clojure.string/replace (:name part) #"^left-" "right-")
+   :size (:size part)})
+
+(defn symmetrize-body-parts
+  [asym-body-parts]
+  (reduce (fn [final-body-parts part]
+            (conj final-body-parts part (matching-part part)))
+          #{}
+          asym-body-parts))
